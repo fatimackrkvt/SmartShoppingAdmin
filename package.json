@@ -4,7 +4,12 @@
   "description": "Admin platform for SmartShopping App",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "client": "npm start --prefix admin-ui",
+    "clientinstall": "npm install --prefix admin-ui",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "keywords": [],
   "author": "",
@@ -16,5 +21,11 @@
     "express-validator": "^6.4.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.9.7"
+  },
+  "devDependencies": {
+    "concurrency": "^0.1.4",
+    "concurrently": "^5.1.0",
+    "nodeman": "^1.1.2",
+    "nodemon": "^2.0.3"
   }
 }
