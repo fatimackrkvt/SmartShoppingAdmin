@@ -52,7 +52,7 @@ router.post('/Register', [ check('name','Name is required').not().isEmpty(),
     }
 }); 
 
-// @route  GET api/auth
+// @route  GET api/users
 // @desc   Get logged in user
 // @access Private
 router.get('/',  auth, async (req,res) => {
@@ -65,11 +65,11 @@ router.get('/',  auth, async (req,res) => {
     }    
 });
 
-// @route  POST  api/auth
+// @route  POST  api/users
 // @desc   Auth user & Get Token
 // @access Public
 router.post('/Login', [ check('email','Please enter a valid email').isEmail(),
-                   check('password','Please enter a password').exists() ], 
+                        check('password','Please enter a password').exists() ], 
                  async(req,res) => {
 
                     const error = validationResult(req);
@@ -81,12 +81,12 @@ router.post('/Login', [ check('email','Please enter a valid email').isEmail(),
                     try {
                         let user = await User.findOne({email});
                         if(!user){
-                            return res.status(400).json({msg:'Invalid credentials'})
+                            return res.status(401).json({msg:'Invalid credentials'})
                         }
 
                         const isMatch = await bcrypt.compare(password, user.password);
                         if(!isMatch){
-                            return res.status(400).json({msg:'Invalid credentials'})
+                            return res.status(401).json({msg:'Invalid credentials'})
                         }
 
                         const payload = {
