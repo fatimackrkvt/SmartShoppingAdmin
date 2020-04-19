@@ -13,7 +13,6 @@ module.exports = function(req, res, next){
     try {
         let decoded = jwt.verify(token, config.get('jwtSecret'));
         req.user = decoded.user;
-        console.log('decoded.user:',decoded.user);
         next();
     } catch (error) {
         res.status(401).json({msg:'Not Authoriated'});

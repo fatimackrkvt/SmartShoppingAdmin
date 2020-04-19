@@ -13,6 +13,7 @@ const PORT = process.env.PORT || 5000;
 
 
 app.use('/api/users',require('./routes/user'));
+app.use('/api/productGroup',require('./routes/productGroup'));
 
 app.listen(PORT, () => {
      console.log(`server listens now ${PORT}`);

@@ -1,11 +1,11 @@
 import React from 'react';
 
-function HomePage(props) {
+function Product(props) {
     return (
         <div>
-        Home Page
+            Product Page
         </div>
     );
 }
 
-export default HomePage;
+export default Product;

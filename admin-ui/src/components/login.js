@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import {NavLink} from 'react-router-dom';
 import axios from 'axios';
 import { authenticationService } from './shared/authentication.service';
 
-class login extends Component {
+class Login extends Component {
     state = {email:'',
              password:''
             }
@@ -26,7 +25,6 @@ class login extends Component {
     handleClick = (e) => {
         e.preventDefault();
 
-        //var self = this;
         var payload={
             "email":this.state.email,
             "password":this.state.password
@@ -41,7 +39,6 @@ class login extends Component {
                 localStorage.setItem('currentUser', JSON.stringify(user));
 
                 //Redirect to origional page / Home page
-                console.log("* this.props.location.state",this.props.location.state);
                 const { from } = this.props.location.state || { from: { pathname: "/" } };
                 this.props.history.push(from);
             }
@@ -56,6 +53,8 @@ class login extends Component {
 
     render() {
         return (
+            <div className="auth-wrapper">
+            <div className="auth-inner">
             <form>
                 <h3>Sign In</h3>
     
@@ -85,13 +84,9 @@ class login extends Component {
                 <p className="forgot-password text-right">
                     Not registered yet <NavLink to='/signUp'>Register Now </NavLink>
                 </p>
-            </form>
+            </form> </div></div>
         );
     }
 }
 
-login.propTypes = {
-
-};
-
-export default login;
+export default Login;

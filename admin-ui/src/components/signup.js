@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import {NavLink} from 'react-router-dom';
 import axios from 'axios';
 
-class signup extends Component {
+class Signup extends Component {
 
     state = {
         name:'',
@@ -20,7 +19,6 @@ class signup extends Component {
     handleClick = (e) => {
         e.preventDefault();
 
-        //var self = this;
         var payload={
             "name": this.state.name,
             "email":this.state.email,
@@ -51,6 +49,8 @@ class signup extends Component {
 
     render() {
         return (
+            <div className="auth-wrapper">
+            <div className="auth-inner">
             <form>
                 <h3>Sign Up</h3>
     
@@ -77,13 +77,9 @@ class signup extends Component {
                 <p className="forgot-password text-right">
                     Already registered <NavLink to='/login'>sign in? </NavLink>
                 </p>
-            </form>
+            </form></div></div>
         );
     }
 }
 
-signup.propTypes = {
-
-};
-
-export default signup;
+export default Signup;

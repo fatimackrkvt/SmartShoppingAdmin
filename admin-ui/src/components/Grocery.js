@@ -1,11 +1,11 @@
 import React from 'react';
 
-function HomePage(props) {
+function Grocery(props) {
     return (
         <div>
-        Home Page
+            Grocery Page
         </div>
     );
 }
 
-export default HomePage;
+export default Grocery;

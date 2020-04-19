@@ -1,9 +1,7 @@
 import React, {Component} from 'react';
 import {NavLink} from 'react-router-dom';
-import PropTypes from 'prop-types';
-import { authenticationService } from './shared/authentication.service';
 
-class logout extends Component {
+class Logout extends Component {
     
     render() {
         // remove user from local storage to log user out
@@ -18,8 +16,4 @@ class logout extends Component {
     }
 }
 
-logout.propTypes = {
-
-};
-
-export default logout;
+export default Logout;
