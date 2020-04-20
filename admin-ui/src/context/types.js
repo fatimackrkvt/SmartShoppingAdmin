@@ -9,3 +9,8 @@ export const SET_FILTER = 'SET_FILTER';
 export const CLEAR_FILTER = 'CLEAR_FILTER';
 export const SET_ALERT = 'SET_ALERT';
 export const REMOVE_ALERT = 'REMOVE_ALERT';
+
+export const GET_GROCERIES = 'GET_GROCERIES';
+export const ADD_GROCERY = 'ADD_GROCERY';
+export const UPDATE_GROCERY  = 'UPDATE_GROCERY';
+export const DELETE_GROCERY  = 'DELETE_GROCERY';

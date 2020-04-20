@@ -5,6 +5,7 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import ProductGroupState from './context/ProductGroup/ProductGroupState';
+import GroceryState from './context/Grocery/GroceryState';
 import { history } from './components/shared/history.helper';
 import {PrivateRoute} from './components/shared/PrivateRoute';
 import HomePage from './components/HomePage';
@@ -20,6 +21,7 @@ import TreeMenu from './components/layout/TreeMenu';
 function App() {
   return (
   <ProductGroupState>
+  <GroceryState>
   <Router history={history}>
     <div className="App">
       <Navbar></Navbar>
@@ -41,6 +43,7 @@ function App() {
       </div>
     </div>
     </Router>
+    </GroceryState>
     </ProductGroupState>
   );
 }

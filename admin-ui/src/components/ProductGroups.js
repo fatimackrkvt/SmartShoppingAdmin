@@ -18,7 +18,7 @@ const ProductGroup = () => {
              <div style={{ border:2}}> <ProductGroupForm></ProductGroupForm> </div>
              <div>
                 {productGroupList.map(productGroup => 
-                    <ProductGroupItem key={productGroup.id} productGroup={productGroup}></ProductGroupItem>
+                    <ProductGroupItem key={productGroup._id} productGroup={productGroup}></ProductGroupItem>
                 ) }
              </div>
         </div>

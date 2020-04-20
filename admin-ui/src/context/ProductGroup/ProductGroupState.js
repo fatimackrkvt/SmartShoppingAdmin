@@ -53,7 +53,7 @@ const ProductGroupState = props => {
         .then( response => {
             if(response.status == 200){  //successfull
 
-                productGroup.id = response.data.newProductGroup._id;
+                productGroup._id = response.data.newProductGroup._id;
 
                 dispatch({type:ADD_PRODUCTGROUP, payload:productGroup});
             }

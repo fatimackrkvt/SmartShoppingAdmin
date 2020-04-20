@@ -5,7 +5,8 @@ const ProductGroupForm = () => {
 
     const productGroupContext = useContext(ProductGroupContext);
 
-    const {addProductGroup, updateProductGroup, clearCurrent, currentProductGroup } = productGroupContext;
+    const {addProductGroup, updateProductGroup, clearCurrent, currentProductGroup,
+           productGroupList } = productGroupContext;
 
     useEffect( () => {
          if(currentProductGroup != null){
@@ -48,15 +49,34 @@ const ProductGroupForm = () => {
         clearCurrent();
 
         setProductGroup({
+            _id:null,
             name:'',
             baseProductGroupId:0
         });
+    }
+
+    const handleBaseGroupChange = (event) => {
+        let selectedValue = event.target.value;
+        console.log("handleBaseGroupChange:selectedValue:",selectedValue);
+        setProductGroup({...productGroup, baseProductGroupId:selectedValue });
     }
 
     return (
         <form onSubmit={onSubmit}>
             <h4 className='text-header'>{currentProductGroup?'Edit':'Add'} Product Group</h4>
             <input type="text" placeholder="Enter Name..." name="name" value={name} onChange={onChange}></input>
+            <select name="baseProductGroupId" className="custom-search-select" onChange={handleBaseGroupChange}
+                    value={baseProductGroupId}>
+                <option>Select Base Product Group</option>
+                {productGroupList.map((data) =>
+                <option 
+                    key={data._id}
+                    value={data._id}
+                >
+                    {data.name}
+                </option>
+            )}
+           </select>
             <div>
             <button type="submit" className='btn btn-secondary btn-block'>
                         {currentProductGroup?'Update Product Group':'Add Product Group'}
